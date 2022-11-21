@@ -16,14 +16,20 @@
 
 // DECLARETIVE PIPELINE APROACH
 pipeline {
-	// agent any
+	agent any
 	// agent { docker {image "maven:3.6.3"}}
-	agent { docker {image "node:alpine3.15"}}
+	// agent { docker {image "node:alpine3.15"}}
 	stages {
 			stage('Build') {
 				steps {
-					sh "node --version"
+					// sh "node --version"
 					echo "Build"
+					echo "Path - $PATH"
+					echo "Build Number - $env.BUILD_NUMBER"
+					echo "Build ID - $env.BUILD_ID"
+					echo "Job Name - $env.JOB_NAME"
+					echo "Build Tag - $env.BUILD_TAG"
+					echo "Build URL - $env.BUILD_URL"
 				}
 			}
 			stage('Test') {
