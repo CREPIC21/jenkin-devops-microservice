@@ -65,7 +65,7 @@ pipeline {
 				steps {
 					// docker build -t crepic21/currency-exchange-devops:$env.BUILD_TAG
 					script {
-						dockerImage = docker.build("crepic21/currency-exchange-devops:${env.BUILD_TAG}")
+						dockerImage = docker.build("crepic21/currency-exchange-devops:${env.BUILD_ID}")
 					}
 				}
 			}
