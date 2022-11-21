@@ -18,20 +18,30 @@
 pipeline {
 	agent any
 	stages {
-		stage('Build') {
+			stage('Build') {
+				steps {
+					echo "Build"
+				}
+			}
+			stage('Test') {
 			steps {
-				echo "Build"
+				echo "Test"
 			}
 		}
-		stage('Test') {
-		steps {
-			echo "Test"
+			stage('Integration Test') {
+			steps {
+				echo "Integration Test"
+			}
+		}
+	} post {
+		always {
+			echo "I am awsome. I run always"
+		}
+		success {
+			echo "I run when you are successful"
+		}
+		failure {
+			echo "I run when you fail"
 		}
 	}
-		stage('Integration Test') {
-		steps {
-			echo "Integration Test"
-		}
-	}
-}
 }
