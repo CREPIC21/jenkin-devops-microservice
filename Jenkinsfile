@@ -44,5 +44,8 @@ pipeline {
 		failure {
 			echo "I run when you fail"
 		}
+		changed {
+			echo "I run when you build fails showing what changed and vice versa"
+		}
 	}
 }
